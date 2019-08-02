@@ -1,20 +1,31 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import * as Permissions from "expo-permissions";
 import Toast from "react-native-easy-toast";
+import OverlayCamera from "./components/overlays/OverlayCamera";
 
 const App = () => {
   const toast = useRef(null);
+  const [overlayComponent, setOverlayComponent] = useState(null);
 
   const openCamera = async () => {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     if (status === "denied") {
       toast.current.show("Es necesario aceptar los permisos cámara");
     } else {
-      toast.current.show("Permisos aceptados");
+      setOverlayComponent(
+        <OverlayCamera
+          closeFunction={closeOverlayCamera}
+          toast={toast.current}
+        />
+      );
     }
+  };
+
+  const closeOverlayCamera = () => {
+    setOverlayComponent(null);
   };
 
   return (
@@ -32,6 +43,7 @@ const App = () => {
         }
         title="Leer código de barra"
       />
+      {overlayComponent}
       <Toast
         ref={toast}
         position="bottom"

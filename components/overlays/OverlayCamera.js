@@ -3,7 +3,7 @@ import { StyleSheet, View, Vibration, Linking } from "react-native";
 import { Overlay, Icon } from "react-native-elements";
 import { Camera } from "expo-camera";
 
-const Camera = ({ closeFunction, toast }) => {
+const OverlayCamera = ({ closeFunction, toast }) => {
   const camera = useRef(null);
 
   const onBarCodeScanned = ({ type, data }) => {
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Camera;
+export default OverlayCamera;
