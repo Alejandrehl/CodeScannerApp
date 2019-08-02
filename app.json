@@ -18,11 +18,11 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "bundleIdentifier": "com.alejandrohernandezlara.acomer",
+      "bundleIdentifier": "com.alejandrohernandezlara.codescannerapp",
       "supportsTablet": true
     },
     "android": {
-      "package": "com.alejandrohernandezlara.acomer",
+      "package": "com.alejandrohernandezlara.codescannerapp",
       "permissions": ["CAMERA"]
     }
   }
