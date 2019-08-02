@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
   viewCamera: {
     width: "100%",
     height: "50%",
-    borderColor: "#ffc107",
     borderLeftWidth: 2,
     borderRightWidth: 2,
     borderTopWidth: 2,
