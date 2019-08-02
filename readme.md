@@ -1,6 +1,6 @@
 # Code Scanner App
 
-- (Test Project)[https://snack.expo.io/@janothefuckingbeer/codescannerapp]
+- [Test Project](https://snack.expo.io/@janothefuckingbeer/codescannerapp)
 
 ## SETUP
 
