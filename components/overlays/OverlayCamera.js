@@ -6,16 +6,21 @@ import { Camera } from "expo-camera";
 const OverlayCamera = ({ closeFunction, toast }) => {
   const camera = useRef(null);
 
-  const onBarCodeScanned = ({ type, data }) => {
-    if (type !== "org.iso.QRCode") {
-      toast.show("Solo se permiten códigos QR");
-    } else {
-      Vibration.vibrate();
-      closeFunction();
-      toast.show("Abriendo navegador...", 1000, () => {
-        Linking.openURL(data);
-      });
-    }
+  const onBarCodeScanned = scannedData => {
+    Vibration.vibrate();
+    closeFunction();
+    toast.show(JSON.stringify(scannedData), 5000);
+    // console.log(type);
+    // console.log(data);
+    // if (type !== "org.iso.QRCode") {
+    //   toast.show("Solo se permiten códigos QR");
+    // } else {
+    //   Vibration.vibrate();
+    //   closeFunction();
+    // toast.show("Abriendo navegador...", 1000, () => {
+    //   Linking.openURL(data);
+    // });
+    // }
   };
 
   return (
